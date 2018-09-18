@@ -2,7 +2,11 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <string.h>
-
+/*
+ * Author: Immanuella Duke
+ * Course: Operating Systems
+ * Task  : Implementing my version of the grep command in Linux systems
+*/
 int main(int argc, char ** argv){
 	char buffer[100];
 	FILE *fp;
@@ -45,7 +49,7 @@ int main(int argc, char ** argv){
 			}
 
 			else{
-				while ((read =  getline(&line, &len, fp)) != -1 ){ //while we've not gone thru every line...
+				while ((read =  getline(&line, &len, fp)) != -1 ){ //while we've not gone through every line in the file.
 					if (strstr(line, argv[1]) != NULL){
 						printf("%s",line );
 					}
@@ -53,6 +57,7 @@ int main(int argc, char ** argv){
 				}
 
 			}
+		//incrementing count so we can go through each file
 		count++;
 		}
 	}
