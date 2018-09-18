@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <errno.h>
+#include <stdlib.h>
+#include <string.h>
+
+//void file_reader( char filename[]);
+
+int main( ){
+	char buffer[100];
+	FILE *fp;
+	int count = 0;
+	while (count <= argc){
+		fp = fopen(argv[count], "r");
+		if (fp == NULL ){
+			printf("my cat cannot open file\n");
+			perror("I have an error : ");
+		}
+		else{
+			fgets(buffer, 100, fp);
+			printf("%s", buffer);
+		}
+		fclose(fp);
+
+
+
+
+		count++;
+	}
+
+	return (0);
+	
+
+}
+
+/*
+
+void file_reader (char filename[]){
+	char buffer[100];
+	FILE *fp = fopen(filename, "r");
+	if (fp == NULL){
+		printf ("my-cat: cannot open file\n");
+		perror("I have an error: ");
+		
+		exit(0);
+	}
+	else{
+		fgets(buffer, 100, fp);
+		printf("%s", buffer);
+}
+
+	fclose(fp);
+}
+*/
